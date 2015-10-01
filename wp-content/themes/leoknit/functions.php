@@ -11,9 +11,15 @@ function leosknit_scripts_styles() {
   wp_register_script( 'classie', get_template_directory_uri() . '/js/classie.js', array(), '1.0.0', true );
   wp_register_script( 'main', get_template_directory_uri() . '/js/main.js', array(), '1.0.0', true );
   wp_register_script( 'modernizer', get_template_directory_uri() . '/js/modernizr.custom.js', array(), '1.0.0', false );
+	wp_register_script( 'jquery', get_template_directory_uri() . '/js/jquery-1.11.3.min.js', array(), '1.0.0', true );
+	wp_register_script( 'arctext', get_template_directory_uri() . '/js/jquery.arctext.js', array( 'jquery' ), '1.0.0', false );
+	wp_register_script( 'custom', get_template_directory_uri() . '/js/custom.js', array( 'jquery', 'arctext' ), '1.0.0', false );
   wp_enqueue_script( 'classie' );
   wp_enqueue_script( 'main' );
   wp_enqueue_script( 'modernizer' );
+	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'arctext' );
+	wp_enqueue_script( 'custom' );
 }
 
 add_action( 'wp_enqueue_scripts', 'leosknit_scripts_styles' );

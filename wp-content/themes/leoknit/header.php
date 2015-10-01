@@ -15,19 +15,15 @@
       <button id="menu-toggle" class="menu-toggle"><span>Menu</span></button>
 			<div id="theSidebar" class="sidebar">
 				<button class="close-button fa fa-fw fa-close"></button>
-				<div class="codrops-links">
-					<a class="codrops-icon codrops-icon--prev" href="http://tympanus.net/Tutorials/MotionBlurEffect/" title="Previous Demo"><span>Previous Demo</span></a>
-					<a class="codrops-icon codrops-icon--drop" href="http://tympanus.net/codrops/?p=23872" title="Back to the article"><span>Back to the Codrops article</span></a>
+				<h1 id="header1">Leonor's Knit</h1>
+				<div>
+					Display SVG
 				</div>
-				<h1><span>Animated<span> Grid Layout</h1>
-				<nav class="codrops-demos">
-					<a class="current-demo" href="index.html">Demo 1</a>
-					<a href="index2.html">Demo 2</a>
-				</nav>
-				<div class="related">
-					<h3>Related Demos</h3>
-					<a href="http://tympanus.net/Development/BookPreview/">Book Preview</a>
-					<a href="http://tympanus.net/Tutorials/ThumbnailGridExpandingPreview/">Thumbnail Grid</a>
-					<a href="http://tympanus.net/Development/3DGridEffect/">3D Grid Effect</a>
+				<h1 id="header2">Le Knit, c'est chic</h1>
+				<div class="contact">
+					Contact
+				</div>
+				<div class="contact">
+					Social
 				</div>
 			</div>
