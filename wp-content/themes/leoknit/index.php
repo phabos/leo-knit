@@ -2,13 +2,6 @@
 
 <div id="theGrid" class="main">
   <section class="grid">
-    <header class="top-bar">
-      <h2 class="top-bar__headline">Latest articles</h2>
-      <div class="filter">
-        <span>Filter by:</span>
-        <span class="dropdown">Popular</span>
-      </div>
-    </header>
     <a class="grid__item" href="#">
       <h2 class="title title--preview">On Humans &amp; other Beings</h2>
       <div class="loader"></div>
