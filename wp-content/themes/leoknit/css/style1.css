@@ -95,7 +95,7 @@ button:focus {
   content: "go to";
   position: absolute;
   top: 0px;
-  left: -35px;
+  left: -40px;
   opacity: 0;
   -webkit-transition: opacity 0.5s ease-in-out;
   -moz-transition: opacity 0.5s ease-in-out;
@@ -146,7 +146,7 @@ button:focus {
 }
 
 .sidebar .contact {
-  margin: 20px 0 10px 0;
+  margin: 30px 0 10px 0;
   font-family: 'Lobster', cursive;
   font-weight: normal;
   position: relative;
@@ -160,6 +160,17 @@ button:focus {
   background-color: #fff;
   position: absolute;
   top: 40px;
+  left: 85px;
+}
+
+.sidebar .contact::before {
+  content: '';
+  width: 100px;
+  height: 1px;
+  color: #fff;
+  background-color: #fff;
+  position: absolute;
+  top: -10px;
   left: 85px;
 }
 

@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * Include theme class
+ */
+require_once(__DIR__ . '/inc/Post.class.php');
+
 /**
  * Enqueue scripts and styles
  */
@@ -24,10 +29,16 @@ function leosknit_scripts_styles() {
 
 add_action( 'wp_enqueue_scripts', 'leosknit_scripts_styles' );
 
+/*
+ * Image à la une
+ */
+
+ add_theme_support( 'post-thumbnails');
+
 /**
  * Init metabox
  */
-function initialisation_metaboxes(){
+/*function initialisation_metaboxes(){
   add_meta_box('id_ma_meta', 'Ma metabox', 'ma_meta_function', 'post', 'side', 'high');
 }
-add_action('add_meta_boxes','initialisation_metaboxes');
+add_action('add_meta_boxes','initialisation_metaboxes');*/
