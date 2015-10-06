@@ -1,17 +1,20 @@
+<?php //print_r(PostCollection::getPosts()); die(); ?>
 <?php get_header(); ?>
 
 <div id="theGrid" class="main">
   <section class="grid">
+    <?php foreach(PostCollection::getPosts() as $post) : ?>
     <a class="grid__item" href="#">
-      <h2 class="title title--preview">On Humans &amp; other Beings</h2>
+      <h2 class="title title--preview"><?php echo $post->post_title; ?></h2>
       <div class="loader"></div>
-      <span class="category">Stories for humans</span>
+      <span class="category"><?php echo Post::getDescription($post->ID); ?></span>
       <div class="meta meta--preview">
         <img class="meta__avatar" src="img/authors/1.png" alt="author01" />
         <span class="meta__date"><i class="fa fa-calendar-o"></i> 9 Apr</span>
         <span class="meta__reading-time"><i class="fa fa-clock-o"></i> 3 min read</span>
       </div>
     </a>
+  <?php endforeach; ?>
     <footer class="page-meta">
       <span>Load more...</span>
     </footer>
