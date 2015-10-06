@@ -87,6 +87,10 @@ button:focus {
   font-size: 25px;
 }
 
+.sidebar a.text {
+  font-size:20px;
+}
+
 .sidebar a.text::before {
   content: "go to";
   position: absolute;
@@ -138,6 +142,7 @@ button:focus {
   background-color: #fff;
   border-radius: 90px;
   padding: 8px 0 0 0;
+  overflow: hidden;
 }
 
 .sidebar .contact {
@@ -951,14 +956,14 @@ button:focus {
     right: 5px;
     bottom: 5px;
     left: 5px;
-    border: 1px solid rgba(74, 74, 74, 0.075);
+    border: 1px solid rgba(240, 175, 183, 0.075);
     -webkit-transition: opacity 0.3s;
-    transition: opacity 0.3s; 
+    transition: opacity 0.3s;
   }
 
   .grid__item:hover::before,
   .grid__item:focus::before {
-    border: 3px solid rgba(129, 196, 131, 0.5);
+    border: 3px solid rgba(240, 175, 183, 0.5);
   }
 
   .grid__item--loading.grid__item::before {
