@@ -17,7 +17,7 @@
 				<button class="close-button fa fa-fw fa-close"></button>
 				<h1 id="header1"><?php echo get_bloginfo('name'); ?></h1>
 				<div class="svg-container">
-					<svg
+					<!--svg
 					   width="80%"
 					   height="80%"
 					   viewBox="0 0 304.75092 338.35816"
@@ -147,7 +147,8 @@
 					       inkscape:connector-curvature="0"
 					       sodipodi:nodetypes="cscscc" />
 					  </g>
-					</svg>
+					</svg-->
+					<img src="<?php echo content_url(); ?>/themes/leoknit/img/logo.jpg" />
 				</div>
 				<h1 id="header2"><?php echo get_bloginfo('description'); ?></h1>
 				<div class="clearfix"></div>

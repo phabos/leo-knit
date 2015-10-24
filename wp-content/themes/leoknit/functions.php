@@ -5,6 +5,7 @@
  */
 require_once(__DIR__ . '/inc/PostCollection.class.php');
 require_once(__DIR__ . '/inc/Post.class.php');
+require_once(__DIR__ . '/inc/Helper.class.php');
 
 /**
  * Enqueue scripts and styles
