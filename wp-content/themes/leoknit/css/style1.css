@@ -555,15 +555,15 @@ button:focus {
 }
 
 .meta--preview .meta__avatar {
-  -webkit-filter: grayscale(50%);
-  filter: grayscale(50%);
+  -webkit-filter: none;
+  filter: none;
   position: relative;
 }
 
 .grid__item:hover .meta--preview .meta__avatar,
 .grid__item:focus .meta--preview .meta__avatar {
-  -webkit-filter: none;
-  filter: none;
+  -webkit-filter: grayscale(50%);
+  filter: grayscale(50%);
 }
 
 .meta__date,
@@ -760,9 +760,13 @@ button:focus {
 
 .meta--full {
   font-size: 1em;
-  margin: 0 auto 2em;
+  margin: 10px auto 2em;
   max-width: 1200px;
   position:relative;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
 }
 .meta--full .meta__author {
   display: block;
