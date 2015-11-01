@@ -156,7 +156,5 @@
 					<a href="#" class="text">Contact</a>
 				</div>
 				<div class="clearfix"></div>
-				<div class="social">
-					<a href="https://instagram.com/leonorsknit/" target="_blank"><i class="fa fa-instagram"></i></a>
-				</div>
+			  <a class="social" href="https://instagram.com/leonorsknit/" target="_blank"><i class="fa fa-instagram"></i></a>
 			</div>

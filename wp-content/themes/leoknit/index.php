@@ -33,7 +33,7 @@
             <!--span class="meta__reading-time"><i class="fa fa-clock-o"></i> 3 min read</span-->
           </div>
           <p><?php echo $post->post_content; ?></p>
-          <p><?php echo plugins\ImgGal\ImgGalFront::PH_build_gallery($post->ID); ?></p>
+          <div class="slickslider"><?php echo plugins\ImgGal\ImgGalFront::PH_build_gallery($post->ID); ?></div>
         </article>
       <?php endforeach; ?>
     </div>

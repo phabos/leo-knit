@@ -15,8 +15,8 @@ class ImgGalFront{
 
       if( !empty( $has_gallery_images )) {
         foreach($has_gallery_images as $has_gallery_image){
-          $image = wp_get_attachment_image($has_gallery_image, 'thumbnail', false, array('alt' => trim(strip_tags(get_post_meta( $has_gallery_image, '_wp_attachment_image_alt', true )))));
-          $html_gal .= $image;
+          $image = wp_get_attachment_image($has_gallery_image, array(300,300), false, array('alt' => trim(strip_tags(get_post_meta( $has_gallery_image, '_wp_attachment_image_alt', true )))));
+          $html_gal .= '<div>' . $image . '</div>';
         }
       }
     }
