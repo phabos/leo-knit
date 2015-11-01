@@ -990,7 +990,7 @@ button:focus {
     border: 1px solid #efefef;
     -webkit-transition: opacity 0.3s;
     transition: opacity 0.3s;
-    z-index: 100000;
+    z-index: 11;
   }
 
   .grid__item:hover::before,
