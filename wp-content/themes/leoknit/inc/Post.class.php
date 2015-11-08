@@ -8,7 +8,7 @@
 
       public static function getThumbnail( $postId, $size = 'full' ) {
         //return get_the_post_thumbnail( $postId, $size, array('class' => 'meta__avatar') );
-        $post_thumbnail_id = get_post_thumbnail_id( $post_id );
+        $post_thumbnail_id = get_post_thumbnail_id( $postId );
         return wp_get_attachment_image_src( $post_thumbnail_id );
       }
 

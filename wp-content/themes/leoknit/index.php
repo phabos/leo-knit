@@ -1,41 +1,37 @@
 <?php get_header(); ?>
 
-<div id="theGrid" class="main">
-  <section class="grid">
-    <?php foreach(PostCollection::getPosts() as $post) : ?>
-    <a class="grid__item" href="#">
+<div id="theGrid" class="main" ng-controller="ArticleList">
+  <section class="grid" section>
+    <a class="grid__item" ng-repeat="(pos, article) in articles" ng-click="showContent($event)" data-pos="{{pos}}">
       <div class="padding-title">
-        <h2 class="title title--preview"><?php echo $post->post_title; ?></h2>
+        <h2 class="title title--preview">{{article.title}}</h2>
         <div class="loader"></div>
-        <span class="category"><?php echo Post::getDescription($post->ID); ?></span>
+        <span class="category">{{article.description}}</span>
       </div>
       <div class="meta meta--preview">
-        <img class="meta__avatar" src="<?php echo Post::getThumbnail( $post->ID )[0] ; ?>" />
-        <span class="meta__date"><i class="fa fa-calendar-o"></i> <?php echo Helper::dateToDatetime($post->post_date)->format('d-m-y'); ?></span>
+        <img class="meta__avatar" src="{{article.smallthumb}}" />
+        <span class="meta__date"><i class="fa fa-calendar-o"></i> {{article.date}}</span>
         <!--span class="meta__reading-time"><i class="fa fa-clock-o"></i> 3 min read</span-->
       </div>
     </a>
-  <?php endforeach; ?>
     <footer class="page-meta">
-      <span>Load more...</span>
+      <span ng-click="loadMaoreArticles()">Load more...</span>
     </footer>
   </section>
   <section class="content">
     <div class="scroll-wrap">
-      <?php foreach(PostCollection::getPosts() as $post) : ?>
-        <article class="content__item">
-          <span class="category category--full"><?php echo Post::getTags( $post->ID ); ?></span>
-          <h2 class="title title--full"><?php echo $post->post_title; ?></h2>
-          <div class="meta meta--full" style="background-image:url('<?php echo Post::getThumbnail( $post->ID, 'full' )[0] ; ?>')">
+        <article class="content__item" ng-repeat="article in articles">
+          <span class="category category--full">{{ article.tags }}</span>
+          <h2 class="title title--full">{{ article.title }}</h2>
+          <div class="meta meta--full" style="background-image:url('{{ article.bigthumb }}')">
             <!--img class="meta__avatar" src="<?php echo Post::getThumbnail( $post->ID, 'full' )[0] ; ?>" alt="author01" /-->
             <!--span class="meta__author">Matthew Walters</span-->
-            <span class="meta__date"><i class="fa fa-calendar-o"></i> <?php echo Helper::dateToDatetime($post->post_date)->format('d-m-y'); ?></span>
+            <span class="meta__date"><i class="fa fa-calendar-o"></i> {{ article.date }}</span>
             <!--span class="meta__reading-time"><i class="fa fa-clock-o"></i> 3 min read</span-->
           </div>
-          <p><?php echo $post->post_content; ?></p>
-          <div class="slickslider"><?php echo plugins\ImgGal\ImgGalFront::PH_build_gallery($post->ID); ?></div>
+          <p>{{ article.content }}</p>
+          <div class="slickslider">{{ article.gallery }}</div>
         </article>
-      <?php endforeach; ?>
     </div>
     <button class="close-button"><i class="fa fa-close"></i><span>Close</span></button>
   </section>

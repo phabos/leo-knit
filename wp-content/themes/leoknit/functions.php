@@ -16,6 +16,7 @@ function leosknit_scripts_styles() {
   wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/fonts/font-awesome-4.3.0/css/font-awesome.min.css', array(), '1.0.0', false );
 	wp_enqueue_style( 'slickslider', get_template_directory_uri() . '/css/slick.css', array(), '1.0.0', false );
 	wp_enqueue_style( 'slicktheme', get_template_directory_uri() . '/css/slick-theme.css', array(), '1.0.0', false );
+	wp_enqueue_style( 'angularLoadingCss', get_template_directory_uri() . '/css/loading-bar.css', array(), '1.0.0', false );
 
   wp_register_script( 'classie', get_template_directory_uri() . '/js/classie.js', array(), '1.0.0', true );
   wp_register_script( 'main', get_template_directory_uri() . '/js/main.js', array(), '1.0.0', true );
@@ -24,6 +25,10 @@ function leosknit_scripts_styles() {
 	wp_register_script( 'arctext', get_template_directory_uri() . '/js/jquery.arctext.js', array( 'jquery' ), '1.0.0', false );
 	wp_register_script( 'custom', get_template_directory_uri() . '/js/custom.js', array( 'jquery', 'arctext' ), '1.0.0', false );
 	wp_register_script( 'slick', get_template_directory_uri() . '/js/slick.min.js', array( 'jquery'), '1.0.0', false );
+	wp_register_script( 'angular', get_template_directory_uri() . '/js/angularjs.js', array(), '1.0.0', true );
+	wp_register_script( 'angularCustom', get_template_directory_uri() . '/js/angularCustom.js', array( 'angular' ), '1.0.0', false );
+	wp_register_script( 'angularAnimate', get_template_directory_uri() . '/js/angular-animate.js', array( 'angular' ), '1.0.0', true );
+	wp_register_script( 'angularLoading', get_template_directory_uri() . '/js/loading-bar.js', array( 'angular', 'angularAnimate' ), '1.0.0', true );
 
   wp_enqueue_script( 'classie' );
   wp_enqueue_script( 'main' );
@@ -32,6 +37,10 @@ function leosknit_scripts_styles() {
 	wp_enqueue_script( 'arctext' );
 	wp_enqueue_script( 'custom' );
 	wp_enqueue_script( 'slick' );
+	wp_enqueue_script( 'angular' );
+	wp_enqueue_script( 'angularCustom' );
+	wp_enqueue_script( 'angularAnimate' );
+	wp_enqueue_script( 'angularLoading' );
 }
 
 add_action( 'wp_enqueue_scripts', 'leosknit_scripts_styles' );
