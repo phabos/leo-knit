@@ -655,9 +655,10 @@ button:focus {
   width: 100%;
   padding: 15px 15px 10px;
   text-align: center;
-  font-size: 0.75em;
-  font-weight: bold;
+  font-size: 1.5em;
+  font-weight: normal;
   cursor: default;
+  font-family: "Lobster", serif;
 }
 
 /* Placeholder element (dummy that gets animated when we click on an item) */
@@ -903,6 +904,7 @@ button:focus {
 .close-button--show {
   opacity: 1;
   pointer-events: auto;
+  color: #ddd;
 }
 
 /* Viewport sizes based on column number and sidebar */

@@ -15,7 +15,7 @@
       </div>
     </a>
     <footer class="page-meta">
-      <span ng-click="loadMaoreArticles()" ng-hide="showMore == false">Load more...</span>
+      <span ng-click="loadMaoreArticles()" ng-hide="showMore == false">Older stories...</span>
     </footer>
   </section>
   <section class="content">

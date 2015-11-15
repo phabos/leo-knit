@@ -50,7 +50,7 @@ app.controller('ArticleList', function ($scope, $http) {
       }else{
         $scope.showMore = 0;
       }
-      $scope.articles = data.concat($scope.articles);
+      $scope.articles = $scope.articles.concat(data);
     });
     offset++;
   }
