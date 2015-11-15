@@ -2,10 +2,12 @@
 
   class PostCollection {
 
-      public static function getPosts() {
+    static public $nbPostPerPage = 2;
+
+      public static function getPosts( $offset = 0 ) {
         $args = array(
-        	'posts_per_page'   => 12,
-        	'offset'           => 0,
+        	'posts_per_page'   => self::$nbPostPerPage,
+        	'offset'           => $offset * self::$nbPostPerPage,
         	'orderby'          => 'date',
         	'order'            => 'DESC',
         	'post_type'        => 'post',

@@ -57,11 +57,14 @@ if( !class_exists( 'PhApiArticle' ) ) {
         public static function sniff_requests(){
             global $wp;
             if( isset( $wp->query_vars[ '__api' ] ) ) {
-                $artilces = array();
+                $articles = array();
                 sleep(2);
-                if( count( PostCollection::getPosts() ) > 0 ) {
+                $offset = isset( $_GET['offset'] ) ? $_GET['offset'] : 0;
+                $posts = PostCollection::getPosts( $offset );
+                if( count( $posts ) > 0 ) {
                   $i = 0;
-                  foreach( PostCollection::getPosts() as $post ){
+                  foreach( $posts as $post ){
+                    $articles[$i]['pos'] = $offset * PostCollection::$nbPostPerPage + $i;
                     $articles[$i]['title'] = $post->post_title;
                     $articles[$i]['description'] = Post::getDescription($post->ID);
                     $articles[$i]['smallthumb'] = Post::getThumbnail( $post->ID, 'medium' )[0];
@@ -73,7 +76,6 @@ if( !class_exists( 'PhApiArticle' ) ) {
                     $i++;
                   }
                 }
-                //print_r($artilces);
                 wp_send_json( $articles );
                 die();
             }

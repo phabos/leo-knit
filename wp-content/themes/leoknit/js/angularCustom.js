@@ -33,14 +33,26 @@ app.controller('ArticleList', function ($scope, $http) {
       contentItemsContainer = gridEl.querySelector('section.content'),
       sidebarEl = document.getElementById('theSidebar'),
       menuCloseCtrl = sidebarEl.querySelector('.close-button'),
-      gridItemsContainer = gridEl.querySelector('section.grid');
+      closeCtrl = contentItemsContainer.querySelector('.close-button'),
+      menuCtrl = document.getElementById('menu-toggle'),
+      gridItemsContainer = gridEl.querySelector('section.grid'),
+      gridItems = gridItemsContainer.querySelectorAll('.grid__item');
 
   $scope.articles = [];
+  var offset = 0;
+  $scope.showMore = 0;
 
   var grabMoreArticle = function() {
-    $http.get('api/article.json').success(function(data) {
+    $scope.showMore = 0;
+    $http.get('api/article.json?offset=' + offset).success(function(data) {
+      if(data.length > 0){
+        $scope.showMore = 1;
+      }else{
+        $scope.showMore = 0;
+      }
       $scope.articles = data.concat($scope.articles);
     });
+    offset++;
   }
 
   grabMoreArticle();
@@ -121,6 +133,8 @@ app.controller('ArticleList', function ($scope, $http) {
 		});
 	}
 
+  initEvents();
+
   var loadContent  = function(item) {
 		// add expanding element/placeholder
 		var dummy = document.createElement('div');
@@ -169,7 +183,11 @@ app.controller('ArticleList', function ($scope, $http) {
 	}
 
 	var hideContent = function() {
+    // Reinitialize contentItems
+    var contentItems = contentItemsContainer.querySelectorAll('.content__item');
+    var gridItems = gridItemsContainer.querySelectorAll('.grid__item');
 		var gridItem = gridItems[current], contentItem = contentItems[current];
+    console.log(gridItem);
 
 		classie.remove(contentItem, 'content__item--show');
 		classie.remove(contentItemsContainer, 'content--show');
