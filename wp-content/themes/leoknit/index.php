@@ -15,7 +15,7 @@
       </div>
     </a>
     <footer class="page-meta">
-      <span ng-click="loadMaoreArticles()" ng-hide="showMore == false">Older stories...</span>
+      <span ng-click="loadMoreArticles()" ng-hide="showMore == false">Older stories...</span>
     </footer>
   </section>
   <section class="content">
@@ -30,7 +30,14 @@
             <!--span class="meta__reading-time"><i class="fa fa-clock-o"></i> 3 min read</span-->
           </div>
           <p>{{ article.content }}</p>
-          <div class="slickslider">{{ article.gallery }}</div>
+          <div class="carousel-container">
+            <ul rn-carousel class="image" rn-carousel-controls>
+              <li ng-repeat="image in article.gallery track by $index">
+                <div class="layer"><img src="{{ image }}" /></div>
+              </li>
+            </ul>
+          </div>
+          <div class="clearfix"></div>
         </article>
     </div>
     <button class="close-button"><i class="fa fa-close"></i><span>Close</span></button>

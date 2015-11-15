@@ -22,4 +22,23 @@ class ImgGalFront{
     }
     return $html_gal;
   }
+
+  public static function PH_build_array_gallery( $postId )
+  {
+    $_gal = array();
+
+    $attachment_ids = get_post_meta($postId, '_ph_img_gal', true);
+    if ( $attachment_ids ) {
+      $has_gallery_images = explode(',', $attachment_ids);
+  		$has_gallery_images = array_filter($has_gallery_images);
+
+      if( !empty( $has_gallery_images )) {
+        foreach($has_gallery_images as $has_gallery_image){
+          $src = wp_get_attachment_image_src( $has_gallery_image, 'full' );
+          $_gal[] = $src[0];
+        }
+      }
+    }
+    return $_gal;
+  }
 }

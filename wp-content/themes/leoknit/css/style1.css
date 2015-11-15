@@ -659,6 +659,7 @@ button:focus {
   font-weight: normal;
   cursor: default;
   font-family: "Lobster", serif;
+  cursor: pointer;
 }
 
 /* Placeholder element (dummy that gets animated when we click on an item) */
@@ -875,7 +876,7 @@ button:focus {
   margin: 0;
   z-index: 100;
   top: 0;
-  right: 0;
+  right: 15px;
   font-size: 18px;
   color: #fff;
   cursor: pointer;

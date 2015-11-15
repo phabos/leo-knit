@@ -5,9 +5,9 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Leo's Knit - a blog about Knitting</title>
-		<meta name="description" content="A responsive, magazine-like website layout with a grid item animation effect when opening the content" />
-		<meta name="keywords" content="grid, layout, effect, animated, responsive, magazine, template, web design" />
-		<meta name="author" content="Codrops" />
+		<meta name="description" content="<?php echo get_bloginfo('description'); ?>" />
+		<meta name="keywords" content="knit, yarn, tricot" />
+		<meta name="author" content="Phabos" />
     <?php wp_head(); ?>
 	</head>
 	<body ng-app="leoKnitApp">

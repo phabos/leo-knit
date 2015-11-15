@@ -1,4 +1,4 @@
-var app = angular.module('leoKnitApp', ['angular-loading-bar', 'ngAnimate']);
+var app = angular.module('leoKnitApp', ['angular-loading-bar', 'ngAnimate', 'ngSanitize', 'angular-carousel']);
 
 app.config(function(cfpLoadingBarProvider) {
   cfpLoadingBarProvider.includeSpinner = true;
@@ -57,7 +57,7 @@ app.controller('ArticleList', function ($scope, $http) {
 
   grabMoreArticle();
 
-  $scope.loadMaoreArticles = function() {
+  $scope.loadMoreArticles = function() {
     grabMoreArticle();
   }
 

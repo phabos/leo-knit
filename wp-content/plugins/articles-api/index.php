@@ -72,7 +72,7 @@ if( !class_exists( 'PhApiArticle' ) ) {
                     $articles[$i]['tags'] = Post::getTags( $post->ID );
                     $articles[$i]['bigthumb'] = Post::getThumbnail( $post->ID, 'full' )[0];
                     $articles[$i]['content'] = $post->post_content;
-                    $articles[$i]['gallery'] = plugins\ImgGal\ImgGalFront::PH_build_gallery($post->ID);
+                    $articles[$i]['gallery'] = plugins\ImgGal\ImgGalFront::PH_build_array_gallery($post->ID);
                     $i++;
                   }
                 }
