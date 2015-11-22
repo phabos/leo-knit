@@ -41,6 +41,7 @@ app.controller('ArticleList', function ($scope, $http) {
   $scope.articles = [];
   var offset = 0;
   $scope.showMore = 0;
+  $scope.showNoMore = 0;
 
   var grabMoreArticle = function() {
     $scope.showMore = 0;
@@ -50,8 +51,14 @@ app.controller('ArticleList', function ($scope, $http) {
       }else{
         $scope.showMore = 0;
       }
+
+      if(data.length == 0){
+        $scope.showNoMore = 1;
+      }
+
       $scope.articles = $scope.articles.concat(data);
     });
+
     offset++;
   }
 
