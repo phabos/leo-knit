@@ -2,7 +2,7 @@
 
 <div id="theGrid" class="main" ng-controller="ArticleList">
   <section class="grid" section>
-    <a class="grid__item" ng-repeat="article in articles" ng-click="showContent($event)" data-pos="{{article.pos}}">
+    <a class="grid__item" ng-repeat="article in articles" ng-click="showContent($event, {{article.pos}})">
       <div class="padding-title">
         <h2 class="title title--preview">{{article.title}}</h2>
         <div class="loader"></div>

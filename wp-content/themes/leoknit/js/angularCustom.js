@@ -87,14 +87,16 @@ app.controller('ArticleList', function ($scope, $http) {
   var scrollX = function() { return window.pageXOffset || docElem.scrollLeft; }
   var scrollY = function() { return window.pageYOffset || docElem.scrollTop; }
 
-  $scope.showContent = function($event) {
+  $scope.showContent = function($event, pos) {
     var item = $event.target;
-    var pos = jQuery(item).data('pos');
+    console.log(pos);
+    //var pos = jQuery(item).data('pos');
     if(isAnimating || current === pos) {
       return false;
     }
     isAnimating = true;
     // index of current item
+
     current = pos;
     // simulate loading time..
     classie.add(item, 'grid__item--loading');
@@ -179,7 +181,9 @@ app.controller('ArticleList', function ($scope, $http) {
 			// show content item:
       // Reinitialize contentItems
       var contentItems = contentItemsContainer.querySelectorAll('.content__item');
+
 			classie.add(contentItems[current], 'content__item--show');
+
 			// show close control
 			classie.add(closeCtrl, 'close-button--show');
 			// sets overflow hidden to the body and allows the switch to the content scroll
