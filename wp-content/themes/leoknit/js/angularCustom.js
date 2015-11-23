@@ -1,9 +1,32 @@
-var app = angular.module('leoKnitApp', ['angular-loading-bar', 'ngAnimate', 'ngSanitize', 'angular-carousel']);
+/******** INIT APP / SET DEPENDENCE ********/
+var app = angular.module('leoKnitApp', ['angular-loading-bar', 'ngAnimate', 'ngSanitize', 'angular-carousel', 'ngRoute']);
 
+/******** CONFIG ********/
 app.config(function(cfpLoadingBarProvider) {
   cfpLoadingBarProvider.includeSpinner = true;
 });
 
+app.config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider.
+      when('/', {
+        templateUrl: '/wp-content/themes/leoknit/partials/article-list.html',
+        controller: 'ArticleList'
+      }).
+      when('/contact', {
+        templateUrl: '/wp-content/themes/leoknit/partials/contact.html',
+        controller: 'ContactCtrl'
+      });
+  }
+]);
+
+/******** CONTACT CONTROLLER ********/
+app.controller('ContactCtrl', function ($scope, $http) {
+
+});
+
+
+/******** ARTICLE CONTROLLER ********/
 app.controller('ArticleList', function ($scope, $http) {
   /** GLOBAL VARS **/
 	var isAnimating = false,
@@ -89,7 +112,7 @@ app.controller('ArticleList', function ($scope, $http) {
 
   $scope.showContent = function($event, pos) {
     var item = $event.target;
-    console.log(pos);
+    //console.log(pos);
     //var pos = jQuery(item).data('pos');
     if(isAnimating || current === pos) {
       return false;
@@ -198,7 +221,7 @@ app.controller('ArticleList', function ($scope, $http) {
     var contentItems = contentItemsContainer.querySelectorAll('.content__item');
     var gridItems = gridItemsContainer.querySelectorAll('.grid__item');
 		var gridItem = gridItems[current], contentItem = contentItems[current];
-    console.log(gridItem);
+    //console.log(gridItem);
 
 		classie.remove(contentItem, 'content__item--show');
 		classie.remove(contentItemsContainer, 'content--show');

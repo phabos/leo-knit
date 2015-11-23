@@ -22,7 +22,8 @@
 				<h1 id="header2"><?php echo get_bloginfo('description'); ?></h1>
 				<div class="clearfix"></div>
 				<div class="contact">
-					<a href="#" class="text">Contact</a>
+					<a href="#/" class="text">Home</a><br/>
+					<a href="#/contact" class="text">Contact</a>
 				</div>
 				<div class="clearfix"></div>
 			  <a class="social" href="https://instagram.com/leonorsknit/" target="_blank"><i class="fa fa-instagram"></i></a>
