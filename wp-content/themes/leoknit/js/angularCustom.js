@@ -1,33 +1,13 @@
 /******** INIT APP / SET DEPENDENCE ********/
-var app = angular.module('leoKnitApp', ['angular-loading-bar', 'ngAnimate', 'ngSanitize', 'angular-carousel', 'ngRoute']);
+var app = angular.module('leoKnitApp', ['angular-loading-bar', 'ngAnimate', 'ngSanitize', 'angular-carousel']);
 
 /******** CONFIG ********/
 app.config(function(cfpLoadingBarProvider) {
   cfpLoadingBarProvider.includeSpinner = true;
 });
 
-app.config(['$routeProvider',
-  function($routeProvider) {
-    $routeProvider.
-      when('/', {
-        templateUrl: '/wp-content/themes/leoknit/partials/article-list.html',
-        controller: 'ArticleList'
-      }).
-      when('/contact', {
-        templateUrl: '/wp-content/themes/leoknit/partials/contact.html',
-        controller: 'ContactCtrl'
-      });
-  }
-]);
-
-/******** CONTACT CONTROLLER ********/
-app.controller('ContactCtrl', function ($scope, $http) {
-
-});
-
-
 /******** ARTICLE CONTROLLER ********/
-app.controller('ArticleList', function ($scope, $http) {
+app.controller('ArticleCtrl', function ($scope, $http) {
   /** GLOBAL VARS **/
 	var isAnimating = false,
   	  current = -1,
@@ -68,7 +48,7 @@ app.controller('ArticleList', function ($scope, $http) {
 
   var grabMoreArticle = function() {
     $scope.showMore = 0;
-    $http.get('api/article.json?offset=' + offset).success(function(data) {
+    $http.get('http://leosknit.fr/api/article.json?offset=' + offset).success(function(data) {
       if(data.length > 0){
         $scope.showMore = 1;
       }else{
@@ -110,24 +90,19 @@ app.controller('ArticleList', function ($scope, $http) {
   var scrollX = function() { return window.pageXOffset || docElem.scrollLeft; }
   var scrollY = function() { return window.pageYOffset || docElem.scrollTop; }
 
-  $scope.showContent = function($event, pos) {
-    var item = $event.target;
-    //console.log(pos);
-    //var pos = jQuery(item).data('pos');
-    if(isAnimating || current === pos) {
-      return false;
-    }
-    isAnimating = true;
-    // index of current item
+  $scope.showContent = function($event, articleId) {
+    $scope.item = $event.target;
+    $scope.currentArticle = document.getElementById( articleId );
 
-    current = pos;
+    isAnimating = true;
+
     // simulate loading time..
-    classie.add(item, 'grid__item--loading');
+    classie.add($scope.item, 'grid__item--loading');
     setTimeout(function() {
-      classie.add(item, 'grid__item--animate');
+      classie.add($scope.item, 'grid__item--animate');
       // reveal/load content after the last element animates out (todo: wait for the last transition to finish)
       setTimeout(function() {
-        loadContent(item);
+        loadContent();
       }, 500);
     }, 1000);
   }
@@ -167,14 +142,14 @@ app.controller('ArticleList', function ($scope, $http) {
 
   initEvents();
 
-  var loadContent  = function(item) {
+  var loadContent  = function() {
 		// add expanding element/placeholder
 		var dummy = document.createElement('div');
 		dummy.className = 'placeholder';
 
 		// set the width/heigth and position
-		dummy.style.WebkitTransform = 'translate3d(' + (item.offsetLeft - 5) + 'px, ' + (item.offsetTop - 5) + 'px, 0px) scale3d(' + item.offsetWidth/gridItemsContainer.offsetWidth + ',' + item.offsetHeight/getViewport('y') + ',1)';
-		dummy.style.transform = 'translate3d(' + (item.offsetLeft - 5) + 'px, ' + (item.offsetTop - 5) + 'px, 0px) scale3d(' + item.offsetWidth/gridItemsContainer.offsetWidth + ',' + item.offsetHeight/getViewport('y') + ',1)';
+		dummy.style.WebkitTransform = 'translate3d(' + ($scope.item.offsetLeft - 5) + 'px, ' + ($scope.offsetTop - 5) + 'px, 0px) scale3d(' + $scope.item.offsetWidth/gridItemsContainer.offsetWidth + ',' + $scope.item.offsetHeight/getViewport('y') + ',1)';
+		dummy.style.transform = 'translate3d(' + ($scope.item.offsetLeft - 5) + 'px, ' + ($scope.item.offsetTop - 5) + 'px, 0px) scale3d(' + $scope.item.offsetWidth/gridItemsContainer.offsetWidth + ',' + $scope.item.offsetHeight/getViewport('y') + ',1)';
 
 		// add transition class
 		classie.add(dummy, 'placeholder--trans-in');
@@ -202,10 +177,9 @@ app.controller('ArticleList', function ($scope, $http) {
 			// show the main content container
 			classie.add(contentItemsContainer, 'content--show');
 			// show content item:
-      // Reinitialize contentItems
-      var contentItems = contentItemsContainer.querySelectorAll('.content__item');
+      //var currentItem = document.getElementById(articleId);
 
-			classie.add(contentItems[current], 'content__item--show');
+			classie.add($scope.currentArticle, 'content__item--show');
 
 			// show close control
 			classie.add(closeCtrl, 'close-button--show');
@@ -220,7 +194,7 @@ app.controller('ArticleList', function ($scope, $http) {
     // Reinitialize contentItems
     var contentItems = contentItemsContainer.querySelectorAll('.content__item');
     var gridItems = gridItemsContainer.querySelectorAll('.grid__item');
-		var gridItem = gridItems[current], contentItem = contentItems[current];
+		var gridItem = $scope.item, contentItem = $scope.currentArticle;
     //console.log(gridItem);
 
 		classie.remove(contentItem, 'content__item--show');

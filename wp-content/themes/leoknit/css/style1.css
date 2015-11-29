@@ -159,6 +159,7 @@ button:focus {
   font-family: 'Lobster', cursive;
   font-weight: normal;
   position: relative;
+  cursor: pointer;
 }
 
 .sidebar .contact::after {
@@ -168,7 +169,7 @@ button:focus {
   color: #fff;
   background-color: #fff;
   position: absolute;
-  top: 60px;
+  top: 45px;
   left: 85px;
 }
 

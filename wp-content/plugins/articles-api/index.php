@@ -58,13 +58,13 @@ if( !class_exists( 'PhApiArticle' ) ) {
             global $wp;
             if( isset( $wp->query_vars[ '__api' ] ) ) {
                 $articles = array();
-                sleep(2);
+                sleep(1);
                 $offset = isset( $_GET['offset'] ) ? $_GET['offset'] : 0;
                 $posts = PostCollection::getPosts( $offset );
                 if( count( $posts ) > 0 ) {
                   $i = 0;
                   foreach( $posts as $post ){
-                    $articles[$i]['pos'] = $offset * PostCollection::$nbPostPerPage + $i;
+                    $articles[$i]['pos'] = $offset * PostCollection::$nbPostPerPage + $i + 1;
                     $articles[$i]['title'] = $post->post_title;
                     $articles[$i]['description'] = Post::getDescription($post->ID);
                     $articles[$i]['smallthumb'] = Post::getThumbnail( $post->ID, 'medium' )[0];
@@ -72,6 +72,7 @@ if( !class_exists( 'PhApiArticle' ) ) {
                     $articles[$i]['tags'] = Post::getTags( $post->ID );
                     $articles[$i]['bigthumb'] = Post::getThumbnail( $post->ID, 'full' )[0];
                     $articles[$i]['content'] = $post->post_content;
+                    $articles[$i]['uniqId'] = 'article-id-'.$articles[$i]['pos'];
                     $articles[$i]['gallery'] = plugins\ImgGal\ImgGalFront::PH_build_array_gallery($post->ID);
                     $i++;
                   }

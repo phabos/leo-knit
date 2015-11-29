@@ -23,14 +23,13 @@ function leosknit_scripts_styles() {
 	wp_register_script( 'jquery', get_template_directory_uri() . '/js/jquery-1.11.3.min.js', array(), '1.0.0', true );
 	wp_register_script( 'arctext', get_template_directory_uri() . '/js/jquery.arctext.js', array( 'jquery' ), '1.0.0', false );
 	wp_register_script( 'custom', get_template_directory_uri() . '/js/custom.js', array( 'jquery', 'arctext' ), '1.0.0', false );
-	wp_register_script( 'angular', get_template_directory_uri() . '/js/angularjs.js', array(), '1.0.0', true );
+	wp_register_script( 'angular', get_template_directory_uri() . '/js/angularjs.js', array( 'jquery' ), '1.0.0', true );
 	wp_register_script( 'angularCustom', get_template_directory_uri() . '/js/angularCustom.js', array( 'angular' ), '1.0.0', false );
 	wp_register_script( 'angularAnimate', get_template_directory_uri() . '/js/angular-animate.js', array( 'angular' ), '1.0.0', true );
 	wp_register_script( 'angularSanitize', get_template_directory_uri() . '/js/angular-sanitize.js', array( 'angular' ), '1.0.0', true );
 	wp_register_script( 'angularLoading', get_template_directory_uri() . '/js/loading-bar.js', array( 'angular', 'angularAnimate' ), '1.0.0', true );
 	wp_register_script( 'angularTouch', get_template_directory_uri() . '/js/angular-touch.js', array( 'angular' ), '1.0.0', true );
 	wp_register_script( 'angularCarousel', get_template_directory_uri() . '/js/angular-carousel.js', array( 'angular', 'angularTouch' ), '1.0.0', true );
-	wp_register_script( 'angularRoute', get_template_directory_uri() . '/js/angular-route.js', array( 'angular' ), '1.0.0', true );
 
 	wp_enqueue_script( 'angular' );
   	wp_enqueue_script( 'classie' );
@@ -44,7 +43,6 @@ function leosknit_scripts_styles() {
 	wp_enqueue_script( 'angularSanitize' );
 	wp_enqueue_script( 'angularTouch' );
 	wp_enqueue_script( 'angularCarousel' );
-	wp_enqueue_script( 'angularRoute' );
 	wp_enqueue_script( 'angularLoading' );
 }
 
