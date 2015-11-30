@@ -77,7 +77,7 @@ button:focus {
   position: relative;
 }
 
-.sidebar .social {
+.sidebar a.social {
   margin: 30px 0 0 100px;
   width: 55px;
   height: 55px;
@@ -86,13 +86,38 @@ button:focus {
   padding: 10px;
   font-size: 25px;
   display: block;
-  transition: all, 1s linear 0.2s;
-  -webkit-transition: all, 1s linear 0.2s;
+  /*-webkit-transition: all 1s ;
+  transition: all 1s ease-in-out;*/
 }
 
-.sidebar .social:hover{
-  color: #f0afb7;
-  background-color: #fff;
+@-webkit-keyframes zoominout {
+0%   { transform: scale(1); }
+  50% { transform: scale(0.8); }
+  100% { transform: scale(1); }
+}
+@-moz-keyframes zoominout {
+0%   { transform: scale(1); }
+  50% { transform: scale(0.8); }
+  100% { transform: scale(1); }
+}
+@-o-keyframes zoominout {
+   0%   { transform: scale(1); }
+  50% { transform: scale(0.8); }
+  100% { transform: scale(1); }
+}
+@keyframes zoominout {
+   0%   { transform: scale(1); }
+  50% { transform: scale(0.8); }
+  100% { transform: scale(1); }
+}
+
+.sidebar a.social:hover{
+  /*color: #f0afb7;
+  background-color: #fff;*/
+  -webkit-animation: zoominout 1s ease-in-out; /* Safari 4+ */
+  -moz-animation:    zoominout 1s ease-in-out; /* Fx 5+ */
+  -o-animation:      zoominout 1s ease-in-out; /* Opera 12+ */
+  animation:         zoominout 1s ease-in-out; /* IE 10+, Fx 29+ */
 }
 
 .sidebar a.text {
