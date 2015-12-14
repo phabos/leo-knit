@@ -10,12 +10,14 @@ License: GPL2
 namespace Phabos\metaboxes;
 
 require_once(__DIR__ . '/inc/metabox-description.php');
+require_once(__DIR__ . '/inc/metabox-pattern.php');
 
 class Metabox {
 
   public static function run () {
     if ( is_admin() ) {
       metaboxDescription::run();
+      new MetaboxPattern;
     }
   }
 

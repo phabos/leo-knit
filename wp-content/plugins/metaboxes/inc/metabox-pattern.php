@@ -1,9 +1,11 @@
 <?php
 
-namespace plugins\MetaboxAdmin;
+namespace Phabos\metaboxes;
 
-class MetaboxAdmin{
-  public function __construct(){
+class MetaboxPattern {
+
+  public function __construct()
+  {
     $this->fireHooks();
   }
 
