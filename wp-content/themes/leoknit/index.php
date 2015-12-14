@@ -33,6 +33,7 @@
             <span class="meta__date"><i class="fa fa-calendar-o"></i> {{ article.date }}</span>
           </div>
           <p ng-bind-html="article.content"></p>
+          <p class="acenter mgtop" ng-if="article.pattern"><a target="_blank" href="{{ article.pattern }}"><i class="fa fa-chevron-circle-right"></i>&nbsp;&nbsp;Télécharger le pattern</a></p>
           <div class="carousel-container">
             <ul rn-carousel class="image" rn-carousel-controls>
               <li ng-repeat="image in article.gallery track by $index">

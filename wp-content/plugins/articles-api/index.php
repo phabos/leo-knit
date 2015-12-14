@@ -74,6 +74,7 @@ if( !class_exists( 'PhApiArticle' ) ) {
                     $articles[$i]['content'] = $post->post_content;
                     $articles[$i]['uniqId'] = 'article-id-'.$articles[$i]['pos'];
                     $articles[$i]['gallery'] = plugins\ImgGal\ImgGalFront::PH_build_array_gallery($post->ID);
+                    $articles[$i]['pattern'] = get_post_meta( $post->ID, '_ph_pattern', true );
                     $i++;
                   }
                 }
