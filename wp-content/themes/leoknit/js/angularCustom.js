@@ -45,6 +45,7 @@ app.controller('ArticleCtrl', function ($scope, $http) {
   var offset = 0;
   $scope.showMore = 0;
   $scope.showNoMore = 0;
+  $scope.detailShown = 0;
 
   var grabMoreArticle = function() {
     $scope.showMore = 0;
@@ -89,6 +90,14 @@ app.controller('ArticleCtrl', function ($scope, $http) {
 
   var scrollX = function() { return window.pageXOffset || docElem.scrollLeft; }
   var scrollY = function() { return window.pageYOffset || docElem.scrollTop; }
+
+  $scope.showContact = function($event, articleId) {
+    if( $scope.detailShown ){
+      hideContent();
+    }
+
+    $scope.showContent($event, articleId);
+  }
 
   $scope.showContent = function($event, articleId) {
     $scope.item = $event.target;
@@ -143,6 +152,8 @@ app.controller('ArticleCtrl', function ($scope, $http) {
   initEvents();
 
   var loadContent  = function() {
+    $scope.detailShown = 1;
+
 		// add expanding element/placeholder
 		var dummy = document.createElement('div');
 		dummy.className = 'placeholder';
