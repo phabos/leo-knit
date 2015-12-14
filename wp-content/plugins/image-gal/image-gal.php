@@ -8,8 +8,6 @@ Author URI: https://twitter.com/phabos1
 License: GPL2
 */
 
-if (! defined( 'ABSPATH' )) exit;
-
 use plugins\ImgGal\ImgGalAdmin;
 use plugins\ImgGal\ImgGalFront;
 
