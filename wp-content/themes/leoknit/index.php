@@ -2,7 +2,7 @@
 
 <div id="theGrid" class="main">
   <section class="grid">
-    <a class="grid__item" ng-repeat="article in articles" ng-click="showContent($event, '{{article.uniqId}}')">
+    <a class="grid__item fade" ng-repeat="article in articles" ng-click="showContent($event, '{{article.uniqId}}')">
       <div class="padding-title">
         <h2 class="title title--preview">{{article.title}}</h2>
         <div class="loader"></div>

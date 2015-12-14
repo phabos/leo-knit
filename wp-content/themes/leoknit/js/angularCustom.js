@@ -233,6 +233,7 @@ app.controller('ArticleCtrl', function ($scope, $http) {
 
 			// reset current
 			current = -1;
+      $scope.detailShown = 0;
 		}, 25);
 	}
 

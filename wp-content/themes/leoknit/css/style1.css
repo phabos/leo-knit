@@ -594,6 +594,11 @@ button:focus {
   position: relative;
 }
 
+.grid__item .meta--preview .meta__avatar {
+  transition: 1s filter linear;
+  -webkit-transition: 1s -webkit-filter linear;
+}
+
 .grid__item:hover .meta--preview .meta__avatar,
 .grid__item:focus .meta--preview .meta__avatar {
   -webkit-filter: grayscale(50%);
@@ -941,6 +946,21 @@ button:focus {
   color: #ddd;
 }
 
+.fade {
+    transition: 0.5s linear all;
+    -webkit-transition: 0.5s linear all;
+}
+
+.fade.ng-enter {
+    opacity: 0;
+    top: 25px;
+}
+
+.fade.ng-enter.ng-enter-active {
+    opacity: 1;
+    top:0;
+}
+
 /* Viewport sizes based on column number and sidebar */
 /* 1 column */
 /* 2 columns */
@@ -1025,8 +1045,8 @@ button:focus {
     bottom: 0px;
     left: 0px;
     border: 1px solid #efefef;
-    -webkit-transition: opacity 0.3s;
-    transition: opacity 0.3s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
     z-index: 11;
   }
 
