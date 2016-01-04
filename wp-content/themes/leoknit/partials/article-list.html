@@ -1,0 +1,18 @@
+<section class="grid">
+    <a class="grid__item fade" ng-repeat="article in articles" ng-click="showContent($event, '{{article.uniqId}}')">
+      <div class="padding-title">
+        <h2 class="title title--preview">{{article.title}}</h2>
+        <div class="loader"></div>
+        <span class="category">{{article.description}}</span>
+      </div>
+      <div class="meta meta--preview">
+        <img class="meta__avatar" ng-src="{{article.smallthumb}}" />
+        <span class="meta__date"><i class="fa fa-calendar-o"></i> {{article.date}}</span>
+        <!--span class="meta__reading-time"><i class="fa fa-clock-o"></i> 3 min read</span-->
+      </div>
+    </a>
+    <footer class="page-meta">
+      <span ng-hide="showNoMore == false">No more stories</span>
+      <span ng-click="loadMoreArticles()" ng-hide="showMore == false">Older stories...</span>
+    </footer>
+</section>

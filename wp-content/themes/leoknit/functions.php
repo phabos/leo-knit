@@ -30,6 +30,7 @@ function leosknit_scripts_styles() {
 	wp_register_script( 'angularLoading', get_template_directory_uri() . '/js/loading-bar.js', array( 'angular', 'angularAnimate' ), '1.0.0', true );
 	wp_register_script( 'angularTouch', get_template_directory_uri() . '/js/angular-touch.js', array( 'angular' ), '1.0.0', true );
 	wp_register_script( 'angularCarousel', get_template_directory_uri() . '/js/angular-carousel.js', array( 'angular', 'angularTouch' ), '1.0.0', true );
+	wp_register_script( 'angularRoute', get_template_directory_uri() . '/js/angular-route.js', array( 'angular' ), '1.0.0', true );
 
 	wp_enqueue_script( 'angular' );
   	wp_enqueue_script( 'classie' );
@@ -44,6 +45,7 @@ function leosknit_scripts_styles() {
 	wp_enqueue_script( 'angularTouch' );
 	wp_enqueue_script( 'angularCarousel' );
 	wp_enqueue_script( 'angularLoading' );
+	wp_enqueue_script( 'angularRoute' );
 }
 
 add_action( 'wp_enqueue_scripts', 'leosknit_scripts_styles' );
