@@ -11,7 +11,7 @@
     <?php wp_head(); ?>
 	</head>
 	<body ng-app="leoKnitApp">
-		<div class="container" ng-controller="ArticleCtrl">
+		<div class="container">
       	<button id="menu-toggle" class="menu-toggle"><span>Menu</span></button>
 		<div id="theSidebar" class="sidebar">
 			<button class="close-button fa fa-fw fa-close"></button>

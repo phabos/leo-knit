@@ -63,7 +63,8 @@ if( !class_exists( 'PhApiArticle' ) ) {
                 $posts = PostCollection::getPosts( $offset );
                 if( count( $posts ) > 0 ) {
                   $i = 0;
-                  foreach( $posts as $post ){
+                  foreach( $posts as $post ) {
+                    $articles[$i]['articleId'] = $i;
                     $articles[$i]['pos'] = $offset * PostCollection::$nbPostPerPage + $i + 1;
                     $articles[$i]['title'] = $post->post_title;
                     $articles[$i]['description'] = Post::getDescription($post->ID);

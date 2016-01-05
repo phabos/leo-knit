@@ -1,11 +1,6 @@
 <section class="content">
     <div class="scroll-wrap">
-        <article class="content__item" id="article-contact">
-          <h2>Contact form</h2>
-          <div>Form</div>
-          <div class="clearfix"></div>
-        </article>
-        <article class="content__item" ng-repeat="article in articles" id="{{article.uniqId}}">
+        <article class="content__item" id="{{article.articleId}}">
           <span class="category category--full">{{ article.tags }}</span>
           <h2 class="title title--full">{{ article.title }}</h2>
           <div class="meta meta--full" ng-style="{'background-image':'url(\'{{article.bigthumb}}\')'}">
