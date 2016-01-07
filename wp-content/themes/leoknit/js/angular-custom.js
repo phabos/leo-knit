@@ -55,9 +55,10 @@ app.controller('ArticleCtrl', function($scope, $http, $routeParams, getHttp, mai
 /******** ARTICLE DETAIL CONTROLLER ********/
 app.controller('ArticleDetailCtrl', function($scope, $http, $routeParams, $location, getHttp, mainDomain) {
     getHttp.httpRequest(mainDomain.name + '/api/article.json?offset=' + $scope.offset).success(function(data, status, headers, config) {
-        //console.log(data);
-        if (angular.isUndefined(data[$routeParams.articleId])) $location = '/';
-        $scope.article = data[$routeParams.articleId];
+        articleId = $routeParams.articleId;
+        console.log(data[articleId].gallery);
+        if (angular.isUndefined(data[articleId])) $location = '/';
+        $scope.article = data[articleId];
     });
 });
 // Factory
