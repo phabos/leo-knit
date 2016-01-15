@@ -59,7 +59,7 @@ button:focus {
   text-align: center;
   background: #f0afb7;
   color:#333;
-  z-index: 1000;
+  z-index: 100;
   position: fixed;
   width: 300px;
   max-width: 100%;
@@ -1190,6 +1190,7 @@ article .mgtop {
 
   .title--full {
     font-size: 2em;
+    margin:0 0 10px 0;
   }
 
   .content__item {
@@ -1218,5 +1219,14 @@ article .mgtop {
     display: none;
   }
 }
+/*.page-detail.ng-enter { animation: slideInRight 0.5s both ease-in; z-index: 8888; -webkit-animation-delay: 2s; animation-delay: 2s; }
+.page-detail.ng-leave { animation: slideOutLeft 0.5s both ease-in; z-index: 9999; -webkit-animation-delay: 2s; animation-delay: 2s; }
+@keyframes slideInRight {
+    from    { transform:translateX(100%); }
+    to      { transform: translateX(0); }
+}
+@keyframes slideOutLeft {
+    to      { transform: translateX(-100%); }
+}*/
 
 /*# sourceMappingURL=style1.css.map */

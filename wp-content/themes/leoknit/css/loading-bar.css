@@ -56,6 +56,7 @@
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
   border-radius: 100%;
+  z-index: 10002;
 }
 
 #loading-bar-spinner {

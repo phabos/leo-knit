@@ -67,6 +67,7 @@ if( !class_exists( 'PhApiArticle' ) ) {
                     $articles[$i]['articleId'] = $i;
                     $articles[$i]['pos'] = $offset * PostCollection::$nbPostPerPage + $i + 1;
                     $articles[$i]['title'] = $post->post_title;
+                    $articles[$i]['postId'] = $post->ID;
                     $articles[$i]['description'] = Post::getDescription($post->ID);
                     $articles[$i]['smallthumb'] = Post::getThumbnail( $post->ID, 'medium' )[0];
                     $articles[$i]['date'] = Helper::dateToDatetime($post->post_date)->format('d-m-y');
