@@ -1115,8 +1115,8 @@ article .mgtop {
     bottom: 0px;
     left: 0px;
     border: 1px solid #efefef;
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
     z-index: 11;
   }
 
