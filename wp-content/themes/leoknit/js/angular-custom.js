@@ -77,10 +77,10 @@ app.controller('ArticleCtrl', function($scope, $http, $routeParams, getHttp, mai
     });
 });*/
 app.controller('ContactCtrl', function($scope, $http, $routeParams, $location, getHttp, mainDomain, animateArticle) {
-    animateArticle.showDetail();
+    /*animateArticle.loadContent();
     $scope.$on("$locationChangeStart", function(event) {
         animateArticle.hideDetail();
-    });
+    });*/
 });
 /******** Factory ********/
 app.value('current', -1);

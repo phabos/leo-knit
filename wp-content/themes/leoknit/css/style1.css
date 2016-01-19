@@ -784,6 +784,11 @@ article h2 {
   pointer-events: none;
   font-size: 0.85em;
 }
+.content__item-form{
+  padding: 60px 60px 80px 60px;
+  pointer-events: none;
+  font-size: 0.85em;
+}
 .content__item p {
   max-width: 1200px;
   margin: 1em auto;
