@@ -1049,6 +1049,7 @@ article .mgtop {
   .main {
     height: 100%;
     margin-left: 300px;
+    margin-top: 25px;
   }
 
   .content__item {
